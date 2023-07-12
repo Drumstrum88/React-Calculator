@@ -1,4 +1,3 @@
-@import 'bootstrap/dist/css/bootstrap.css';
 
 html,
 body {
@@ -8,15 +7,77 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.calculator-container {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 30px;
+  height: 575px;
+  border: 4px solid #000;
+  border-radius: 10px;
+  margin-bottom: 500px;
+  background-color: darkgray;
 }
 
-* {
-  box-sizing: border-box;
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  
 }
 
-body {
-  background-color: #88effd;
+#calculate {
+  background-color: orange
+}
+
+#clear {
+  background-color: black;
+  color: white;
+}
+
+button {
+  width: 100%;
+  height: 80px;
+  font-size: 18px;
+  border: 1px solid #000;
+  
+}
+
+button.calculate {
+  grid-column: 1 / span 4;
+  width: 100%;
+}
+
+.calculator-container button {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: lightgreen;
+  color: black;
+  border: 1px solid #000;
+}
+
+.calculator-container button:hover {
+  background-color: darkgreen;
+  color: white;
+  border: 1px solid #000;
+}
+
+.calculator-container button:active{
+  background-color: darkgreen;
+  color: white;
+  border: 1px solid #000;
+}
+
+#input-field{
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .calculator-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
