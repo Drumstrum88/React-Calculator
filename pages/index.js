@@ -8,7 +8,7 @@ function Calculator() {
   const [input, setInput] = useState('');
 
   const handleClick = (value) => {
-    setInput((prevInput) => prevInput + value);
+    setInput((prevInput) => (prevInput === '0' ? value : prevInput + value));
   };
 
   const handleCalculate = () => {
@@ -21,7 +21,7 @@ function Calculator() {
   };
 
   const handleClear = () => {
-    setInput('');
+    setInput('0');
   };
 
   return (
