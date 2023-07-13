@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { evaluate } from 'mathjs';
+import InputField from '../components/InputField';
+import Button from '../components/Button';
 
 function Calculator() {
   const [input, setInput] = useState('');
-  const [result, setResult] = useState('');
 
   const handleClick = (value) => {
     setInput((prevInput) => prevInput + value);
@@ -21,75 +22,36 @@ function Calculator() {
 
   const handleClear = () => {
     setInput('');
-    setResult('');
   };
 
   return (
     <div className="container">
       <h2>Calculator</h2>
       <div className="calculator-container">
-        <input type="text" id="input-field" value={input} readOnly className="form-control mb-3" />
+        <InputField value={input} />
         <div className="row">
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('7')} className="btn btn-primary btn-block mb-2">7</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('8')} className="btn btn-primary btn-block mb-2">8</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('9')} className="btn btn-primary btn-block mb-2">9</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('+')} className="btn btn-primary btn-block mb-2">+</button>
-          </div>
+          <Button label="7" onClick={() => handleClick('7')} />
+          <Button label="8" onClick={() => handleClick('8')} />
+          <Button label="9" onClick={() => handleClick('9')} />
+          <Button label="+" onClick={() => handleClick('+')} />
         </div>
         <div className="row">
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('4')} className="btn btn-primary btn-block mb-2">4</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('5')} className="btn btn-primary btn-block mb-2">5</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('6')} className="btn btn-primary btn-block mb-2">6</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('-')} className="btn btn-primary btn-block mb-2">-</button>
-          </div>
+          <Button label="4" onClick={() => handleClick('4')} />
+          <Button label="5" onClick={() => handleClick('5')} />
+          <Button label="6" onClick={() => handleClick('6')} />
+          <Button label="-" onClick={() => handleClick('-')} />
         </div>
         <div className="row">
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('1')} className="btn btn-primary btn-block mb-2">1</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('2')} className="btn btn-primary btn-block mb-2">2</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('3')} className="btn btn-primary btn-block mb-2">3</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('*')} className="btn btn-primary btn-block mb-2">*</button>
-          </div>
+          <Button label="1" onClick={() => handleClick('1')} />
+          <Button label="2" onClick={() => handleClick('2')} />
+          <Button label="3" onClick={() => handleClick('3')} />
+          <Button label="*" onClick={() => handleClick('*')} />
         </div>
         <div className="row">
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('0')} className="btn btn-primary btn-block mb-2">0</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('.')} className="btn btn-primary btn-block mb-2">.</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={() => handleClick('/')} className="btn btn-primary btn-block mb-2">/</button>
-          </div>
-          <div className="col-3">
-            <button type="button" onClick={handleCalculate} className="btn btn-primary btn-block mb-2" id="calculate">Calculate</button>
-          </div>
-        </div>
-        {result && <input type="text" value={result} readOnly className="form-control mb-3" />}
-        <div className="row">
-          <div className="col-12">
-            <button type="button" onClick={handleClear} className="btn btn-secondary btn-block" id="clear">Clear</button>
-          </div>
+          <Button label="C" onClick={handleClear} />
+          <Button label="0" onClick={() => handleClick('0')} />
+          <Button label="=" onClick={handleCalculate} />
+          <Button label="/" onClick={() => handleClick('/')} />
         </div>
       </div>
     </div>

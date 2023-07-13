@@ -56,6 +56,7 @@ button.calculate {
   background-color: lightgreen;
   color: black;
   border: 1px solid #000;
+  margin-top: 25px;
 }
 
 .calculator-container button:hover {
